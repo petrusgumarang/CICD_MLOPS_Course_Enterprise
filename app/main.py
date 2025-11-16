@@ -23,6 +23,7 @@ def predict(req: PredictRequest):
         # Contoh bug yang sering muncul: return 500 → ini nanti kamu bahas di skenario hotfix
         raise HTTPException(status_code=400, detail="features must have length 4")
 
+    print("[HOTFIX DEMO] predict() endpoint called")   # <-- dummy change
     model = load_model()
     X = np.array(req.features).reshape(1, -1)
     pred = model.predict(X)[0]
